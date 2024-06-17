@@ -5,22 +5,22 @@
 #define IR_USE_AVR_TIMER 1
 #define IR_RECEIVE_PIN 12
 #define ENTER 4127850240 // Kód klávesy ENTER
-#define redLed 6
-#define greenLed 5
-#define blueLed 9
+#define rLed 6
+#define gLed 5
+#define bLed 9
 
 // Kódy IR signálů pro čísla 0-9
 unsigned long codes[] = {
-    3910598400, // 0
-    4077715200, // 1
-    3877175040, // 2
-    2707357440, // 3
-    4144561920, // 4
-    3810328320, // 5
-    2774204160, // 6
-    3175284480, // 7
-    2907897600, // 8
-    3041591040, // 9
+    3910598400, //0
+    4077715200, //1
+    3877175040, //2
+    2707357440, //3
+    4144561920, //4
+    3810328320, //5
+    2774204160, //6
+    3175284480, //7
+    2907897600, //8
+    3041591040, //9
 };
 
 String stringNum = ""; // Proměnná pro uložení zadávaného čísla
@@ -43,19 +43,19 @@ void setLED(int value) {
   switch (currentLED) {
     case 0:
       Serial.print("Nastavuji Červenou LED: ");
-      analogWrite(redLed, value);
+      analogWrite(rLed, value);
       Serial.println(value);
       currentLED = 1; // Přepnutí na další LED
       break;
     case 1:
       Serial.print("Nastavuji Zelenou LED: ");
-      analogWrite(greenLed, value);
+      analogWrite(gLed, value);
       Serial.println(value);
       currentLED = 2; // Přepnutí na další LED
       break;
     case 2:
       Serial.print("Nastavuji Modrou LED: ");
-      analogWrite(blueLed, value);
+      analogWrite(bLed, value);
       Serial.println(value);
       currentLED = 0; // Přepnutí zpět na první LED
       break;
@@ -69,9 +69,9 @@ void setup() {
   IrReceiver.begin(IR_RECEIVE_PIN, ENABLE_LED_FEEDBACK); // Inicializace IR přijímače
   Serial.begin(9600); // Inicializace sériové komunikace
 
-  pinMode(redLed, OUTPUT); // Nastavení pinů LED jako výstupy
-  pinMode(greenLed, OUTPUT);
-  pinMode(blueLed, OUTPUT);
+  pinMode(rLed, OUTPUT); // Nastavení pinů LED jako výstupy
+  pinMode(gLed, OUTPUT);
+  pinMode(bLed, OUTPUT);
 
   Serial.println("Setup dokončen");
 }
