@@ -42,25 +42,25 @@ String receivedNum(unsigned long irData) {
 void setLED(int value) {
   switch (currentLED) {
     case 0:
-      Serial.print("Nastavuji Červenou LED: ");
+      Serial.print("Nastavení na Červenou LED: ");
       analogWrite(rLed, value);
       Serial.println(value);
       currentLED = 1; // Přepnutí na další LED
       break;
     case 1:
-      Serial.print("Nastavuji Zelenou LED: ");
+      Serial.print("Nastavení na Zelenou LED: ");
       analogWrite(gLed, value);
       Serial.println(value);
       currentLED = 2; // Přepnutí na další LED
       break;
     case 2:
-      Serial.print("Nastavuji Modrou LED: ");
+      Serial.print("Nastavení na Modrou LED: ");
       analogWrite(bLed, value);
       Serial.println(value);
       currentLED = 0; // Přepnutí zpět na první LED
       break;
     default:
-      Serial.println("Nesprávný stav LED");
+      Serial.println("Nesprávná LED");
       break;
   }
 }
@@ -110,7 +110,7 @@ void loop() {
         }
         Serial.print("LED: ");
         Serial.print(ledName);
-        Serial.print(" Aktuální číslo: ");
+        Serial.print(" Aktuální nastavené číslo: ");
         Serial.println(stringNum);
       }
     }
